@@ -45,7 +45,7 @@ jobs:
       environment: uat
       needs: [Build,DeployToSIT]
       steps:
-      - name: Deploy to SIT environment
+      - name: Deploy to UAT environment
         run: echo "Deployment Complete!"        
  
         
