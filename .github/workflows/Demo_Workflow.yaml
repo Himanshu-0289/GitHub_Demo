@@ -1,0 +1,53 @@
+name: Demo workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     -main
+    
+jobs:
+ 
+  Build:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3 
+    - name: Gather Project
+      run: echo "Projects Gathered"
+    - name: Create Build
+      run: echo "Creating Build"
+      
+    - name: Create Release
+      run: |
+        echo "Release Creating"
+        sleep 5
+        echo "Release Created"
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:    
+       name: Demo_GitHub
+       path: '*'
+       retention-days: 7  
+       
+  DeployToSIT:
+      runs-on: ubuntu-latest
+      environment: sit
+      needs: [Build]
+      steps:
+      - name: Deploy to SIT environment
+        run: echo "Deployment Complete!"
+        
+  DeployToUAT:
+      runs-on: ubuntu-latest
+      environment: uat
+      needs: [Build,DeployToSIT]
+      steps:
+      - name: Deploy to SIT environment
+        run: echo "Deployment Complete!"        
+ 
+        
+        
+      
