@@ -1,0 +1,6 @@
+Himanshu Parihar- CI/CD Developer
+
+- Overall 10+ years of experience.
+- 5+ years as DevOps Engineer
+- Good experience as Support and Implementation Engineer.
+- Skills include: GitHub Actions, Kubernetes, AWS, Terraform, Jenkins, Ansible.
